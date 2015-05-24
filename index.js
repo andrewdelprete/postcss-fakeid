@@ -2,6 +2,15 @@ var postcss = require('postcss');
 
 module.exports = postcss.plugin('postcss-fakeid', function () {
     /**
+     * Checks if the selector has an #id
+     * @param  {Boolean}  selector
+     * @return {Boolean}
+     */
+    function hasId(selector) {
+        return /#\w+/gi.test(selector);
+    }
+
+    /**
      * Transform ID selectors to Attribute Selectors
      * @param  {String} selector
      * @return {String}
@@ -9,10 +18,6 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
     function transformIds(selector) {
         // Store an array of selectors
         var idArray = selector.match(/#\w+/gi);
-
-        if (!idArray) {
-            return false;
-        }
 
         // Store an array of transformed selectors
         var idArrayTransformed = idArray
@@ -29,13 +34,12 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
         return selector;
     }
 
-    return function (css) {
-        css.eachRule(function (rule) {
-            var replaceSelectors = transformIds(rule.selector);
+    return function (root) {
+        root.eachRule(function (rule) {
+            if (!hasId(rule.selector)) return false;
 
-            if (replaceSelectors) {
-                rule.replaceWith({ selector: replaceSelectors, nodes: rule.nodes });
-            }
+            var newRule = postcss.rule({ selector: transformIds(rule.selector), nodes: rule.nodes });
+            rule.replaceWith(newRule);
         });
     };
 });
