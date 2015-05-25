@@ -3,7 +3,7 @@
 [PostCSS] PostCSS plugin to transform #id's to attribute selectors.
 
 [PostCSS]: https://github.com/postcss/postcss
-[ci-img]: https://travis-ci.org/pathsofdesign/postcss-fakdeid.svg
+[ci-img]: https://travis-ci.org/Pathsofdesign/postcss-fakeid.svg
 [ci]: https://travis-ci.org/pathsofdesign/postcss-fakeid
 
 ## Examples
