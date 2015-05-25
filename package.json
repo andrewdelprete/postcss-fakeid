@@ -1,6 +1,6 @@
 {
   "name": "postcss-fakeid",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "PostCSS plugin to transform #id's to attribute selectors",
   "keywords": [
     "postcss",

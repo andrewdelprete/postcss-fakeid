@@ -1,10 +1,10 @@
-<!-- # PostCSS FakeId [![Build Status][ci-img]][ci] -->
+# PostCSS FakeId [![Build Status][ci-img]][ci]
 
 [PostCSS] PostCSS plugin to transform #id's to attribute selectors.
 
 [PostCSS]: https://github.com/postcss/postcss
-<!-- [ci-img]: https://travis-ci.org/pathsofdesign/postcss-fakdeid.svg
-[ci]: https://travis-ci.org/pathsofdesign/postcss-fakeid -->
+[ci-img]: https://travis-ci.org/pathsofdesign/postcss-fakdeid.svg
+[ci]: https://travis-ci.org/pathsofdesign/postcss-fakeid
 
 ## Examples
 
