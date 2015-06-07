@@ -13,6 +13,8 @@ Many respectable devs within the web community frown upon the use of #ids in CSS
 > Specificity throws a real curve-ball at a language which is entirely dependent upon source order. To make things worse, you can’t opt out of it, and the only way to deal with it is by getting more and more specific. 
 [http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity][specificity]
 
+## Install
+`> npm install postcss-fakeid --save-dev`
 
 
 ## Examples
