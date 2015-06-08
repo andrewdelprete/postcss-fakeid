@@ -17,7 +17,7 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
      */
     function transformIds(selector) {
         // Store an array of selectors
-        var idArray = selector.match(/#\w+/gi);
+        var idArray = selector.match(/#[a-zA-Z0-9-]*/gi);
 
         // Store an array of transformed selectors
         var idArrayTransformed = idArray
@@ -36,7 +36,7 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
 
     return function (root) {
         root.eachRule(function (rule) {
-            if (!hasId(rule.selector)) return false;
+            if (!hasId(rule.selector)) return true;
 
             var newRule = postcss.rule({ selector: transformIds(rule.selector), nodes: rule.nodes });
             rule.replaceWith(newRule);
