@@ -22,8 +22,8 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
         // Store an array of transformed selectors
         var idArrayTransformed = idArray
             .map(function(id) {
-                    return '[id="' + id.slice(1, id.length) + '"]';
-                });
+                return '[id="' + id.slice(1, id.length) + '"]';
+            });
 
         // Replace selectors with transformed ones and return
         idArrayTransformed.forEach(function(id, index) {
@@ -35,7 +35,7 @@ module.exports = postcss.plugin('postcss-fakeid', function () {
     }
 
     return function (root) {
-        root.eachRule(function (rule) {
+        root.walkRules(function (rule) {
             if (!hasId(rule.selector)) return true;
 
             var newRule = postcss.rule({ selector: transformIds(rule.selector), nodes: rule.nodes });
